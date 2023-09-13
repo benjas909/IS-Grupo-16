@@ -1,6 +1,6 @@
 # Grupo 7
 
-Este es el repositorio del *Grupo X*, cuyos integrantes son:
+Este es el repositorio del *Grupo 7*, cuyos integrantes son:
 
 * Benjamin Aguilera  - Rol
 * Felipe Nuñez - Rol
@@ -13,6 +13,6 @@ Puede acceder a la Wiki mediante el siguiente [enlace](https://gitlab.inf.utfsm.
 
 ## Videos
 
-* [Video presentación cliente](https://www.youtube.com/watch?v=YkOloZBfP38) 
+* [Video presentación cliente](https://drive.google.com/file/d/1FTGfby__ccqlbJhUhGc4fgrdxW_RgDtJ/view?usp=sharing) 
 * [Video presentación avance 1](https://www.youtube.com/watch?v=z36vHZiLrZE)
 * Etc ...
