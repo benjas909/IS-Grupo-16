@@ -1,10 +1,10 @@
-# Grupo X
+# Grupo 7
 
 Este es el repositorio del *Grupo X*, cuyos integrantes son:
 
-* Integrante 1 - Rol
-* Integrante 2 - Rol
-* Integrante 3 - Rol
+* Benjamin Aguilera  - Rol
+* Felipe Nuñez - Rol
+* Felipe Zambrano - 202011502-8
 * **Tutor**: Nombre Tutor
 
 ## Wiki
