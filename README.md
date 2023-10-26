@@ -14,5 +14,4 @@ Puede acceder a la Wiki mediante el siguiente [enlace](https://gitlab.inf.utfsm.
 ## Videos
 
 * [Video presentación cliente](https://drive.google.com/file/d/1FTGfby__ccqlbJhUhGc4fgrdxW_RgDtJ/view?usp=sharing) 
-* [Video presentación avance 1](https://www.youtube.com/watch?v=z36vHZiLrZE)
-* Etc ...
+
