@@ -13,6 +13,10 @@ import UsersView from "./views/users/show";
 import UserList from "./views/users/index";
 import UserAdd from "./views/users/create";
 
+import SimHome from "./views/sims/index";
+
+import SuperHome from "./views/super/index";
+
 import Home from "./views/Home";
 
 export default function App() {
@@ -41,6 +45,13 @@ export default function App() {
 								<Route path="/users">
 									<UserList />
 								</Route>
+								<Route path="/sim">
+									<SimHome />
+								</Route>
+								<Route path="/super">
+									<SuperHome />
+								</Route>
+
 								<Route path="/">
 									<Home />
 								</Route>
