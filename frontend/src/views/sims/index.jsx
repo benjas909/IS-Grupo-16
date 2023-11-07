@@ -14,6 +14,7 @@ export default function Index() {
   const [valorUF, setValorUF] = useState('');
   const [plazoCuota, setPlazoCuota] = useState('');
   const [total, setTotal] = useState('');
+  const [tasaP, setTasaP] = useState('');
 
   const imprimirCalculo = (event) => {
     event.preventDefault();
@@ -108,13 +109,13 @@ export default function Index() {
                     />
                   </div>
                  <div className="form-group">
-                     <label htmlFor="nombre">Tasa de prestamos:</label>
+                     <label htmlFor="tasaP">Tasa de prestamos:</label>
                     <input
                     type="text"
-                    id="nombre"
-                    name="nombre"
-                    value={nombre}
-                    onChange={(e) => setNombre(e.target.value)}
+                    id="tasaP"
+                    name="tasaP"
+                    value={tasaP}
+                    onChange={(e) => setTasaP(e.target.value)}
                     className="form-control"
                     />
                 </div>
