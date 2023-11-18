@@ -12,7 +12,7 @@ export default function Sidebar() {
           <Link to="/"><Nav.Link href="/">Inicio</Nav.Link></Link>
           <Link to="/users"><Nav.Link href="/users">Usuarios</Nav.Link></Link>
           <Link to="/sim"><Nav.Link href="/sim">Prestamos</Nav.Link></Link>
-          <Link to="/super"><Nav.Link href="/super">Vista Supervisor</Nav.Link></Link>
+          <Link to="/requests"><Nav.Link href="/requests">Solicitudes Ingresadas</Nav.Link></Link>
         </Nav>
       </Navbar>
     </div>

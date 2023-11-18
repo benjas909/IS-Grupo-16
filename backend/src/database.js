@@ -1,4 +1,4 @@
-import { Sequelize } from 'sequelize';
+import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
 
 // Inicializar las configuraciones del archivo .env

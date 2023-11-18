@@ -10,7 +10,7 @@ export default function DeleteForm({ id, callback }) {
 			mutate("/users/all");
 			alert("Elemento recargado correctamente");
 		} catch (error) {
-			alert("A ocurrido un error al borrar el elemento");
+			alert("Ha ocurrido un error al borrar el elemento");
 		}
 	};
 	return (

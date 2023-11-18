@@ -15,7 +15,8 @@ import UserAdd from "./views/users/create";
 
 import SimHome from "./views/sims/index";
 
-import SuperHome from "./views/super/index";
+import ReqsHome from "./views/requests/index";
+import ReqsView from "./views/requests/show";
 
 import Home from "./views/Home";
 
@@ -48,8 +49,11 @@ export default function App() {
 								<Route path="/sim">
 									<SimHome />
 								</Route>
-								<Route path="/super">
-									<SuperHome />
+								<Route path="/requests/:id">
+									<ReqsView />
+								</Route>
+								<Route path="/requests">
+									<ReqsHome />
 								</Route>
 
 								<Route path="/">

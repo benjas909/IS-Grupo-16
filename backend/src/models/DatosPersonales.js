@@ -1,18 +1,20 @@
+import { Sequelize } from "sequelize";
+import sequelize from "../database";
 
-import { Sequelize } from 'sequelize';
-import sequelize from '../database';
+class DatosCliente extends Sequelize.Model {}
 
-class DatosPersonales extends Sequelize.Model {}
+DatosCliente.init(
+  {
+    rut: Sequelize.DataTypes.STRING,
+    nombre: Sequelize.DataTypes.STRING,
+    valorUF: Sequelize.DataTypes.FLOAT,
+    plazoCuota: Sequelize.DataTypes.INTEGER,
+    total: Sequelize.DataTypes.FLOAT,
+  },
+  {
+    sequelize,
+    modelName: "DatosCliente",
+  }
+);
 
-DatosPersonales.init({
-  rut: Sequelize.DataTypes.STRING,
-  nombre: Sequelize.DataTypes.STRING,
-  valorUF: Sequelize.DataTypes.FLOAT,
-  plazoCuota: Sequelize.DataTypes.INTEGER,
-  total: Sequelize.DataTypes.FLOAT,
-}, {
-  sequelize,
-  modelName: 'DatosPersonales',
-});
-
-export default DatosPersonales;
+export default DatosCliente;
