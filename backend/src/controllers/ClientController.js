@@ -16,17 +16,20 @@ export default class ClientController {
   }
 
   async get(req, res) {
-    const client = await Client.findByPk(req.params.clientId);
+    console.log('ID del cliente solicitado:', req.params.id); 
+    const client = await Client.findByPk(req.params.id);
     res.send(client);
   }
 
   async create(req, res) {
     const client = await Client.create({
+      id: req.body.id, 
       name: req.body.name,
       age: req.body.age,
     });
     res.send(client);
   }
+  
 
   async update(req, res) {
     const client = await Client.findByPk(req.params.clientId);
