@@ -20,6 +20,7 @@ Request.init(
     plazo: Sequelize.DataTypes.INTEGER,
     cuota: Sequelize.DataTypes.INTEGER,
     total: Sequelize.DataTypes.INTEGER,
+    rutSolicitante: Sequelize.DataTypes.INTEGER,
   },
   {
     sequelize,
