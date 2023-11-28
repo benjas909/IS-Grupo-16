@@ -25,6 +25,7 @@ Request.init(
   {
     sequelize,
     modelName: "Request",
+    timestamps: false,
   }
 );
 

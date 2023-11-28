@@ -14,6 +14,7 @@ DatosCliente.init(
   {
     sequelize,
     modelName: "DatosCliente",
+    timestamps: false,
   }
 );
 

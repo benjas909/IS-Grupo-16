@@ -18,10 +18,16 @@ Client.init(
   {
     name: Sequelize.DataTypes.STRING,
     age: Sequelize.DataTypes.INTEGER,
+    id: {
+      type: Sequelize.DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
   },
   {
     sequelize,
     modelName: "Client",
+    timestamp: false,
   }
 );
 
