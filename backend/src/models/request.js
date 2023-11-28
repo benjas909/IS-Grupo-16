@@ -8,7 +8,7 @@ class Request extends Sequelize.Model {
    */
   static associate(models) {
     // define association here
-    Request.belongsTo(models.client, {
+    Request.belongsTo(models.Client, {
       foreignKey: "rutSolicitante",
     });
   }

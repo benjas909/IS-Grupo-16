@@ -10,7 +10,8 @@ import { Link } from "react-router-dom";
 import { getAllReqs } from "../../repositories/request";
 
 export default function index() {
-	const { data, error } = useSWR("/solicitudes/all", {
+	// eslint-disable-next-line
+	const { data, error } = useSWR("/requests/all", {
 		fetcher: getAllReqs,
 		initialData: [],
 		revalidateOnMount: true,
@@ -21,13 +22,13 @@ export default function index() {
 	data.forEach(({ rutSolicitante, cuota, total, id }) => {
 		tbody.push(
 			<tr>
-		<td>{rutSolicitante}</td>
-        <td>{cuota}</td>
-        <td>{total}</td>
+				<td>{rutSolicitante}</td>
+				<td>{cuota}</td>
+				<td>{total}</td>
 				<td>
-					<Link to={`solicitudes/${id}`}>
-						<a href={`solicitudes/${id}`} className="btn btn-success">
-							Ver
+					<Link to={`requests/${id}`}>
+						<a href={`requests/${id}`} className="btn btn-success">
+							Ver Detalles
 						</a>
 					</Link>
 				</td>
@@ -46,7 +47,7 @@ export default function index() {
 					<tr>
 						<th>Rut Solicitante</th>
 						<th>Cuotas</th>
-            <th>Valor</th>
+            			<th>Valor</th>
 						<th>Acciones</th>
 					</tr>
 				</thead>

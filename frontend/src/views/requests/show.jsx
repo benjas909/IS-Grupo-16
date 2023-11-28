@@ -6,7 +6,7 @@ import { getReq } from "../../repositories/request";
 
 export default function show() {
 	const { id } = useParams();
-
+	// eslint-disable-next-line
 	const { data, error } = useSWR(id, {
 		fetcher: getReq,
 		initialData: [],
@@ -17,8 +17,8 @@ export default function show() {
 			<table className="table">
 				<tbody>
 					<tr>
-						<th>ID:</th>
-						<td>{data.id}</td>
+						<th>Rut Solicitante:</th>
+						<td>{data.rutSolicitante}</td>
 					</tr>
 					<tr>
 						<th>Tasa</th>
