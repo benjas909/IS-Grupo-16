@@ -1,3 +1,6 @@
+
+// app.js
+
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -14,6 +17,7 @@ import UserList from "./views/users/index";
 import UserAdd from "./views/users/create";
 
 import SimHome from "./views/sims/index";
+import { LoanCalculatorView, PersonalInfoView } from "./views/sims/index";
 
 import ReqsHome from "./views/requests/index";
 import ReqsView from "./views/requests/show";
@@ -47,7 +51,7 @@ export default function App() {
 									<UserList />
 								</Route>
 								<Route path="/sim">
-									<SimHome />
+									<LoanCalculatorView />
 								</Route>
 								<Route path="/requests/:id">
 									<ReqsView />
