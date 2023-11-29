@@ -4,12 +4,18 @@ import axios from 'axios';
 
 export default function Index() {
   const history = useHistory();
-
+  
+  
   const [formData, setFormData] = useState({
+    valorCredito: '',
     tasa: '',
     plazo: '',
-    calculo: '',
-  });
+    cuotaUF: '0',
+    totalUF: '0',
+    cuotaClp: '0',
+    totalClp: '0',
+  })
+  
   const [cuota, setCuota] = useState('');
   const [rut, setRut] = useState('');
   const [nombre, setNombre] = useState('');
@@ -17,23 +23,55 @@ export default function Index() {
   const [plazoCuota, setPlazoCuota] = useState('');
   const [total, setTotal] = useState('');
   const [tasaP, setTasaP] = useState('');
+  
+  useEffect(() => {
+    axios.get("https://api.cmfchile.cl/api-sbifv3/recursos_api/uf?apikey=599cd22316598c0ec9fc843e23b2cdcc077159ba&formato=JSON")
+      .then(res => {
+        console.log(res)
+        const data = res.data;
+        setValorUF(data.UFs[0].Valor)
+      })
+      .catch(error => {
+      console.error("Error conectando con api UF:", error);
+      })
+  },[]);
+
+
+  
 
 
   useEffect(() => {
-    console.log('Cuota actualizada:', formData.calculo);
-  }, [formData.calculo]);
+    console.log('Cuota actualizada:', formData.cuotaUF);
+  }, [formData.cuotaUF]);
 
 
   const imprimirCalculo = (event) => {
     event.preventDefault();
-    const resultado = calcular(formData.tasa, formData.plazo);
-    setFormData({ ...formData, calculo: resultado });
-    setCuota(resultado); 
+    const cuotaUF = calcularCuota(formData.tasa, formData.plazo, formData.valorCredito);
+    setFormData({ ...formData, cuotaUF: cuotaUF });
+    setCuota(cuotaUF);
+
   };
 
-  const calcular = (tasa, plazo) => {
-    return tasa * plazo;
+  const calcularCuota = (tasa, plazo, valor) => {
+    var tasa = parseFloat(tasa/100)
+    const cuota = ((valor * tasa) / ( 1 - Math.pow((1+tasa),(-plazo)))).toFixed(2)
+    
+    return cuota;
   };
+
+  const calcularUFTotal = (cuota, plazo) =>{
+    return ((cuota*plazo).toFixed(2))
+  };
+
+  const calcularCuotaClp = (cuota, valorUF) => {
+    return ((cuota*valorUF).toFixed(2))
+  };
+
+  const calcularTotalClp =(UFtotal, valorUF) => {
+    return ((UFtotal * valorUF).toFixed(2))
+  };
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -65,7 +103,7 @@ export default function Index() {
       valorUF: parseFloat(valorUF), 
       plazo: parseInt(plazoCuota, 10), 
       total: parseInt(total, 10),
-      cuota: parseInt(formData.calculo, 10),
+      cuota: parseInt(formData.cuotaUF, 10),
     };
     
 
@@ -130,6 +168,17 @@ export default function Index() {
                 <form onSubmit={imprimirCalculo}>
                   <h2 className="text-center">Simulaciones:</h2>
                   <div className="form-group">
+                    <label htmlFor="valorCredito">Valor del credito:</label>
+                    <input
+                      type="text"
+                      id="valorCredito"
+                      name="valorCredito"
+                      value={formData.valorCredito}
+                      onChange={handleInputChange}
+                      className="form-control"
+                    />
+                  </div>
+                  <div className="form-group">
                     <label htmlFor="tasa">Tasa de préstamo:</label>
                     <input
                       type="text"
@@ -155,7 +204,12 @@ export default function Index() {
                     Calcular
                   </button>
                 </form>
-                <div>Sus cuotas serían de: {formData.calculo}</div>
+                <div>Valor UF hoy: {valorUF}</div>
+                <div>Sus cuotas serían de: {formData.cuotaUF} UF</div>
+                <div>Total: {formData.totalUF} UF</div>
+                <div>Sus cuotas serían de: {formData.cuotaClp} Clp</div>
+                <div>Total: {formData.totalClp} Clp</div>
+
               </div>
             </div>
           </div>
