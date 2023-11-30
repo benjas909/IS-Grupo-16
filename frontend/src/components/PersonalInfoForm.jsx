@@ -1,9 +1,10 @@
-
+// PersonalInfoForm.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import InputField from './InputField';
 
-export default function PersonalInfoForm({ formData, setFormData }) {
+
+export default function PersonalInfoForm({ formData, setFormData, cuota, setCuota }) {
   const [rut, setRut] = useState('');
   const [nombre, setNombre] = useState('');
   const [tasaP, setTasaP] = useState('');
@@ -33,9 +34,9 @@ export default function PersonalInfoForm({ formData, setFormData }) {
       valorUF: parseFloat(valorUF),
       plazo: parseInt(plazoCuota, 10),
       total: parseInt(total, 10),
-      cuota: parseInt(formData.cuotaUF, 10),  
+      cuota: parseInt(cuota),  
     };
-
+    console.log('Cuota en PersonalInfoForm:', cuota);
     try {
       console.log(datosPersonales);
       const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/requests`, datosPersonales);

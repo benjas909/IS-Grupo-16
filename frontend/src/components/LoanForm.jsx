@@ -1,9 +1,9 @@
-
+// loanform.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import InputField from './InputField';
 
-export default function LoanForm() {
+export default function LoanForm({ setCuota }) {
   const [formData, setFormData] = useState({
     valorCredito: '',
     tasa: '',
@@ -14,7 +14,6 @@ export default function LoanForm() {
     totalClp: '0',
   });
 
-  const [cuota, setCuota] = useState('');
   const [valorUF, setValorUF] = useState('');
 
   useEffect(() => {
