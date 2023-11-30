@@ -16,6 +16,14 @@ User.init(
       unique: true,
       allowNull: false,
     },
+    password: {
+      type: Sequelize.DataTypes.STRING,
+      allowNull: false,
+    },
+    permissions: {
+      type: Sequelize.DataTypes.STRING,
+      allowNull: false,
+    }
   },
   {
     sequelize,
