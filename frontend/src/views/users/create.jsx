@@ -49,6 +49,20 @@ export default function create() {
 						required
 					/>
 				</div>
+				<div className="form-group">
+					<label htmlFor="password">Contraseña</label>
+					<input
+						className="form-control"
+						id="password"
+						type="password"
+						value={state.password}
+						onChange={(e) => {
+							setstate({ ...state, password: e.target.value });
+						}}
+						placeholder="Ingrese Contraseña"
+						required
+					/>
+				</div>
 				<div className="float-right">
 					<button type="submit" className="btn btn-primary">
 						Guardar

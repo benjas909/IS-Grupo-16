@@ -1,4 +1,5 @@
 import User from '../models/User.js';
+import bcrypt from "bcrypt";
 
 export default class UserController {
 	 async getAll(req, res) {
@@ -21,9 +22,14 @@ export default class UserController {
 	}
 
 	async create(req, res) {
+		console.log(req.body);
+		const salt = await bcrypt.genSalt(10);
+		const hashpass = await bcrypt.hash(req.body.password, salt)
 		const user = await User.create({
 			nombre: req.body.nombre,
 			email: req.body.email,
+			password: hashpass,
+			permissions: 'user',
 		});
 		res.send(user);
 	}
