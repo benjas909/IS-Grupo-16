@@ -22,7 +22,7 @@ export default function LoanForm() {
       .get("https://api.cmfchile.cl/api-sbifv3/recursos_api/uf?apikey=599cd22316598c0ec9fc843e23b2cdcc077159ba&formato=JSON")
       .then(res => {
         const data = res.data;
-        setValorUF(data.UFs[0].Valor);
+        setValorUF(parseFloat(data.UFs[0].Valor));
       })
       .catch(error => {
         console.error("Error conectando con api UF:", error);
@@ -33,19 +33,42 @@ export default function LoanForm() {
     console.log('Cuota actualizada:', formData.cuotaUF);
   }, [formData.cuotaUF]);
 
-  const imprimirCalculo = (event) => {
-    event.preventDefault();
-    const cuotaUF = calcularCuota(formData.tasa, formData.plazo, formData.valorCredito);
-    setFormData({ ...formData, cuotaUF: cuotaUF });
-    setCuota(cuotaUF);
-  };
 
   const calcularCuota = (tasa, plazo, valor) => {
     var tasa = parseFloat(tasa / 100);
     const cuota = ((valor * tasa) / (1 - Math.pow((1 + tasa), -plazo))).toFixed(2);
-
     return cuota;
   };
+
+
+  const calcularUFTotal = (cuota, plazo) =>{
+    const totalUF = (cuota * plazo).toFixed(2);
+    return totalUF;
+  };
+
+  const conversionCuotaCLP = (cuota, valorUF) =>{
+    const cuotaCLP = (cuota * valorUF).toFixed(0);
+    return cuotaCLP;
+  };
+
+  const conversionTotalCLP = (totalUF, valorUF) =>{
+    const totalCLP = (totalUF * valorUF).toFixed(0);
+    return totalCLP;
+  };
+
+
+  const imprimirCalculo = (event) => {
+    event.preventDefault();
+    const cuotaUF = calcularCuota(formData.tasa, formData.plazo, formData.valorCredito);
+    const totalUF = calcularUFTotal(cuotaUF, formData.plazo);
+    const cuotaCLP = conversionCuotaCLP(cuotaUF, valorUF);
+    const totalCLP = conversionTotalCLP(totalUF, valorUF);
+
+    setFormData({ ...formData, cuotaUF: cuotaUF, totalUF: totalUF, cuotaClp: cuotaCLP, totalClp: totalCLP});
+    // setFormData({ ...formData, totalUF: totalUF});
+    setCuota(cuotaUF);
+  };
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
