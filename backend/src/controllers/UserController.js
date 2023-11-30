@@ -1,5 +1,6 @@
 import User from '../models/User.js';
 import bcrypt from "bcrypt";
+import jwt from 'jsonwebtoken';
 
 export default class UserController {
 	 async getAll(req, res) {
@@ -44,6 +45,32 @@ export default class UserController {
 		await User.destroy({where: {id: req.params.userId}});
 		res.send({status: "ok"});
 	}
+
+	async login(req, res) {
+		const { email, password } = req.body;
+		const user = await User.findOne({
+		  where: {
+			email: email,
+		  },
+		});
+
+		if (!user) {
+		  return res.status(401).send({ error: 'Usuario o contraseña incorrecta' });
+		}
+	
+		const validPassword = await bcrypt.compare(password, user.password);
+		if (!validPassword) {
+		  return res.status(401).send({ error: 'Usuario o contraseña incorrecta' });
+		}
+	
+		const token = jwt.sign({ id: user.id }, process.env.SECRET_TOKEN);
+
+		return res.header("auth-token", token).send("estas logeado");
+
+	}
+	
+
+
 };
 
 
