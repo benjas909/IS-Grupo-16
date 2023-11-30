@@ -1,4 +1,3 @@
-
 // app.js
 
 import React from "react";
@@ -50,9 +49,9 @@ export default function App() {
 								<Route path="/users">
 									<UserList />
 								</Route>
-								<Route path="/sim">
+								{/* <Route path="/sim">
 									<LoanCalculatorView />
-								</Route>
+								</Route> */}
 								<Route path="/requests/:id">
 									<ReqsView />
 								</Route>
@@ -61,7 +60,7 @@ export default function App() {
 								</Route>
 
 								<Route path="/">
-									<Home />
+									<LoanCalculatorView />
 								</Route>
 							</Switch>
 						</Col>

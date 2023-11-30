@@ -108,7 +108,7 @@ export default function LoanForm() {
             Calcular
           </button>
         </form>
-        <div>Valor UF hoy: {valorUF}</div>
+        <div>Valor UF hoy: {valorUF} CLP</div>
         <div>Sus cuotas serían de: {formData.cuotaUF} UF</div>
         <div>Total: {formData.totalUF} UF</div>
         <div>Sus cuotas serían de: {formData.cuotaClp} CLP</div>
