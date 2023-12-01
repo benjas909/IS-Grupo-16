@@ -30,15 +30,22 @@ export default function Sidebar({ userRole }) {
       <Navbar className="bg-dark" variant="dark">
         <Nav defaultActiveKey="/" className="flex-column sidebar-sticky">
           <Link to="/"><Nav.Link href="/">Inicio</Nav.Link></Link>
-          <Link to="/users/login"><Nav.Link href="/">Iniciar sesión</Nav.Link></Link>
           
+          
+
+          {userRole === "user" && (
+            <>
+              <Link to="/users/login"><Nav.Link href="/">Iniciar sesión</Nav.Link></Link>
+            </>
+          )}
+
           {userRole === "supervisor" && (
             <>
               <Link to="/requests"><Nav.Link href="/requests">Solicitudes Ingresadas</Nav.Link></Link>
             </>
           )}
           
-          {/* Otros enlaces basados en el rol del usuario */}
+
         </Nav>
       </Navbar>
     </div>
