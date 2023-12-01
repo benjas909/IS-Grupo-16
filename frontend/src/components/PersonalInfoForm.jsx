@@ -4,13 +4,10 @@ import axios from 'axios';
 import InputField from './InputField';
 
 
-export default function PersonalInfoForm({ formData, setFormData, cuota, setCuota }) {
+export default function PersonalInfoForm({ formData, setFormData, cuota, setCuota,taza, plazo, total,VUF }) {
   const [rut, setRut] = useState('');
   const [nombre, setNombre] = useState('');
-  const [tasaP, setTasaP] = useState('');
-  const [valorUF, setValorUF] = useState('');
-  const [plazoCuota, setPlazoCuota] = useState('');
-  const [total, setTotal] = useState('');
+
 
   const enviarDatosPersonales = async (event) => {
     event.preventDefault();
@@ -30,9 +27,9 @@ export default function PersonalInfoForm({ formData, setFormData, cuota, setCuot
     const datosPersonales = {
       rutSolicitante: clienteId,
       nombre,
-      tasa: parseInt(tasaP, 10),
-      valorUF: parseFloat(valorUF),
-      plazo: parseInt(plazoCuota, 10),
+      tasa: parseInt(taza, 10),
+      valorUF: parseFloat(VUF),
+      plazo: parseInt(plazo, 10),
       total: parseInt(total, 10),
       cuota: parseInt(cuota),  
     };
@@ -96,34 +93,6 @@ export default function PersonalInfoForm({ formData, setFormData, cuota, setCuot
             name="nombre"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
-          />
-          <InputField
-            label="Tasa de préstamos"
-            id="tasaP"
-            name="tasaP"
-            value={tasaP}
-            onChange={(e) => setTasaP(e.target.value)}
-          />
-          <InputField
-            label="Valor UF"
-            id="valorUF"
-            name="valorUF"
-            value={valorUF}
-            onChange={(e) => setValorUF(e.target.value)}
-          />
-          <InputField
-            label="Plazo de préstamo"
-            id="plazoCuota"
-            name="plazoCuota"
-            value={plazoCuota}
-            onChange={(e) => setPlazoCuota(e.target.value)}
-          />
-          <InputField
-            label="Total"
-            id="total"
-            name="total"
-            value={total}
-            onChange={(e) => setTotal(e.target.value)}
           />
           <button type="submit" className="btn btn-primary" style={{backgroundColor: '#164863', color: '#FFFFFF', border: '2px solid #9BBEC8'}}>
             Enviar
