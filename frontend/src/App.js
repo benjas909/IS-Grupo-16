@@ -25,7 +25,7 @@ import ReqsView from "./views/requests/show";
 import Home from "./views/Home";
 
 export default function App() {
-  const [userRole, setUserRole] = useState("analista");
+  const [userRole, setUserRole] = useState("supervisor");
 
   return (
     <Router>
@@ -51,22 +51,16 @@ export default function App() {
                 )}
                 {userRole === "supervisor" && (
                   <React.Fragment>
-                    <Route path="/users/create">
+                    <Route exact path="/users/create">
                       <UserAdd />
                     </Route>
-                    <Route path="/users/:id/edit">
-                      <UsersEdit />
-                    </Route>
-                    <Route path="/users/:id">
-                      <UsersView />
-                    </Route>
-                    <Route path="/users">
+                    <Route exact path="/users">
                       <UserList />
                     </Route>
-                    <Route path="/requests/:id">
+                    <Route exact path="/requests/:id">
                       <ReqsView />
                     </Route>
-                    <Route path="/requests">
+                    <Route exact path="/requests">
                       <ReqsHome />
                     </Route>
                     <Route exact path="/">

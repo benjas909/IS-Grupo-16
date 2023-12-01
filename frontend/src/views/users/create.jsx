@@ -11,7 +11,7 @@ export default function create() {
 		e.preventDefault();
 		try {
 			const response = await createUser(state);
-			history.push(`/users/${response.data.id}`);
+			history.push(`/`);
 		} catch (error) {
 			console.log(error);
 			alert("A ocurrido un error al actualizar");
