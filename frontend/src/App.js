@@ -1,6 +1,6 @@
-// app.js
+// // app.js
 
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
@@ -15,8 +15,9 @@ import UsersView from "./views/users/show";
 import UserList from "./views/users/index";
 import UserAdd from "./views/users/create";
 
-import SimHome from "./views/sims/index";
-import { LoanCalculatorView, PersonalInfoView } from "./views/sims/index";
+
+import { LoanCalculatorView } from "./views/sims/index";
+import LoanCalculatorView2 from "./views/sims/LoanCalculatorView2";
 
 import ReqsHome from "./views/requests/index";
 import ReqsView from "./views/requests/show";
@@ -24,49 +25,60 @@ import ReqsView from "./views/requests/show";
 import Home from "./views/Home";
 
 export default function App() {
-	return (
-		<Router>
-			<div>
-				<Header />
-				<Container fluid className="p-0">
-					<Row className="no-gutters">
-						<Col xs="2">
-							<Sidebar />
-						</Col>
-						<Col xs="10">
-							{/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-							<Switch>
-								<Route path="/users/create">
-									<UserAdd />
-								</Route>
-								<Route path="/users/:id/edit">
-									<UsersEdit />
-								</Route>
-								<Route path="/users/:id">
-									<UsersView />
-								</Route>
-								<Route path="/users">
-									<UserList />
-								</Route>
-								{/* <Route path="/sim">
-									<LoanCalculatorView />
-								</Route> */}
-								<Route path="/requests/:id">
-									<ReqsView />
-								</Route>
-								<Route path="/requests">
-									<ReqsHome />
-								</Route>
+  const [userRole, setUserRole] = useState("base");
 
-								<Route path="/">
-									<LoanCalculatorView />
-								</Route>
-							</Switch>
-						</Col>
-					</Row>
-				</Container>
-			</div>
-		</Router>
-	);
+  return (
+    <Router>
+      <div>
+        <Header />
+        <Container fluid className="p-0">
+          <Row className="no-gutters">
+            <Col xs="2">
+              <Sidebar userRole={userRole} />
+            </Col>
+            <Col xs="10">
+
+              <Switch>
+                {userRole === "base" && (
+                  <Route path="/">
+                    <LoanCalculatorView2 />
+                  </Route>
+                )}
+                {userRole === "analista" && (
+                  <Route path="/">
+                    <LoanCalculatorView />
+                  </Route>
+                )}
+                {userRole === "supervisor" && (
+                  <React.Fragment>
+                    <Route path="/users/create">
+                      <UserAdd />
+                    </Route>
+                    <Route path="/users/:id/edit">
+                      <UsersEdit />
+                    </Route>
+                    <Route path="/users/:id">
+                      <UsersView />
+                    </Route>
+                    <Route path="/users">
+                      <UserList />
+                    </Route>
+                    <Route path="/requests/:id">
+                      <ReqsView />
+                    </Route>
+                    <Route path="/requests">
+                      <ReqsHome />
+                    </Route>
+                    <Route exact path="/">
+                      <LoanCalculatorView />
+                    </Route>
+                  </React.Fragment>
+                )}
+              </Switch>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    </Router>
+  );
 }

@@ -1,9 +1,9 @@
 // LoanCalculatorView.jsx
 import React, { useState } from 'react';
 import LoanForm from '../../components/LoanForm';
-import PersonalInfoForm from '../../components/PersonalInfoForm';
 
-export default function LoanCalculatorView() {
+
+export default function LoanCalculatorView2() {
   const [formData, setFormData] = useState({
     valorCredito: '',
     tasa: '',
@@ -21,9 +21,6 @@ export default function LoanCalculatorView() {
         <div className="row">
           <div className="col-md-6">
             <LoanForm formData={formData} setFormData={setFormData} setCuota={setCuota} />
-          </div>
-          <div className="col-md-6">
-            <PersonalInfoForm formData={formData} setFormData={setFormData}cuota={cuota} setCuota={setCuota} />
           </div>
         </div>
       </div>
