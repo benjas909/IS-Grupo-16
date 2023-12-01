@@ -10,10 +10,12 @@ export default (app) => {
   // const datosPersonalesController = new DatosPersonalesController();
 
   app.get("/users", userController.getAll);
-  app.post("/users", userController.create);
+  app.post("/users/create", userController.create);
   app.get("/users/:userId", userController.get);
   app.put("/users/:userId", userController.update);
   app.delete("/users/:userId", userController.delete);
+
+  app.post("/users/login", userController.login);
 
   app.get("/requests", requestController.getAll);
   app.post("/requests", requestController.create);

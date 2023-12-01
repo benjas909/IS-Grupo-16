@@ -10,10 +10,8 @@ import Col from "react-bootstrap/Col";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 
-import UsersEdit from "./views/users/edit";
-import UsersView from "./views/users/show";
-import UserList from "./views/users/index";
 import UserAdd from "./views/users/create";
+import Userlogin from "./views/users/login";
 
 
 import { LoanCalculatorView } from "./views/sims/index";
@@ -25,7 +23,7 @@ import ReqsView from "./views/requests/show";
 import Home from "./views/Home";
 
 export default function App() {
-  const [userRole, setUserRole] = useState("supervisor");
+  const [userRole, setUserRole] = useState("user");
 
   return (
     <Router>
@@ -37,12 +35,19 @@ export default function App() {
               <Sidebar userRole={userRole} />
             </Col>
             <Col xs="10">
-
               <Switch>
-                {userRole === "base" && (
-                  <Route path="/">
+                {userRole === "user" && (
+                 <React.Fragment>
+                  <Route exact path="/">
                     <LoanCalculatorView2 />
                   </Route>
+                  <Route exact path="/users/register">
+                    <UserAdd />
+                  </Route>
+                  <Route exact path="/users/login">
+                    <Userlogin />   
+                  </Route>
+                  </React.Fragment>
                 )}
                 {userRole === "analista" && (
                   <Route path="/">
@@ -51,12 +56,6 @@ export default function App() {
                 )}
                 {userRole === "supervisor" && (
                   <React.Fragment>
-                    <Route exact path="/users/create">
-                      <UserAdd />
-                    </Route>
-                    <Route exact path="/users">
-                      <UserList />
-                    </Route>
                     <Route exact path="/requests/:id">
                       <ReqsView />
                     </Route>
