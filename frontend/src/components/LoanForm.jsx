@@ -24,7 +24,7 @@ export default function LoanForm({ setCuota }) {
         setValorUF(parseFloat(data.UFs[0].Valor));
       })
       .catch(error => {
-        console.error("Error conectando con api UF:", error);
+        console.error("Error conectando con API CMF:", error);
       });
   }, []);
 
