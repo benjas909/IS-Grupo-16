@@ -1,4 +1,4 @@
-// // app.js
+ // app.js
 
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -25,7 +25,7 @@ import ReqsView from "./views/requests/show";
 import Home from "./views/Home";
 
 export default function App() {
-  const [userRole, setUserRole] = useState("base");
+  const [userRole, setUserRole] = useState("analista");
 
   return (
     <Router>

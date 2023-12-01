@@ -19,11 +19,13 @@ export default function LoanCalculatorView2() {
       <div className="container">
         <h2 className="text-center">Préstamos</h2>
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-6" >
             <LoanForm formData={formData} setFormData={setFormData} setCuota={setCuota} />
           </div>
         </div>
       </div>
     </div>
   );
+
 }
+
