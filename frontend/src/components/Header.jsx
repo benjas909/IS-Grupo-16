@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import Navbar from 'react-bootstrap/Navbar';
 
 export default function Header() {
-  const nombre = useSelector((store) => store.username);
+
 
   return (
     <Navbar className="bg-blue d-flex justify-content-between align-items-center" variant="dark">
@@ -13,7 +13,7 @@ export default function Header() {
         <div style={{ fontSize: '24px', fontWeight: 'bold' }}>Financiera La Clave</div>
       </Navbar.Brand>
       <div className="text-white" style={{ fontSize: '18px' }}>
-        ¡Hola, {nombre}!
+    
       </div>
     </Navbar>
   );
