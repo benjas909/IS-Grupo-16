@@ -13,7 +13,12 @@ export default function LoanCalculatorView2() {
     cuotaClp: '0',
     totalClp: '0',
   });
+
   const [cuota, setCuota] = useState('');
+  const [taza, settaza] = useState('');
+  const [plazo, setplazo] = useState('');
+  const [total, settotal] = useState('');
+  const [VUF, setVUF] = useState('');
   return (
     <div>
       <div className="container">
