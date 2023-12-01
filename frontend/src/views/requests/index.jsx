@@ -27,7 +27,7 @@ export default function index() {
 				<td>{total}</td>
 				<td>
 					<Link to={`requests/${id}`}>
-						<a href={`requests/${id}`} className="btn btn-success">
+						<a href={`requests/${id}`} className="btn btn-success" style={{backgroundColor: '#427D9D', color: '#FFFFFF', border: '2px solid #9BBEC8'}}>
 							Ver Detalles
 						</a>
 					</Link>

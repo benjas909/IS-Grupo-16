@@ -43,7 +43,7 @@ export default function index() {
 			<div className="d-flex align-items-center">
 				<h1>Listado de Usuarios</h1>
 				<Link to="/users/create">
-					<a href="/users/create" className="ml-4 btn btn-primary">
+					<a href="/users/create" className="ml-4 btn btn-primary" style={{backgroundColor: '#164863', color: '#FFFFFF', border: '2px solid #9BBEC8'}}>
 						Crear Usuario
 					</a>
 				</Link>

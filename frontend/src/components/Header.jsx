@@ -8,9 +8,9 @@ export default function Header() {
   const nombre = useSelector((store) => store.username);
 
   return (
-    <Navbar className="bg-salmon d-flex justify-content-between align-items-center" variant="dark">
+    <Navbar className="bg-blue d-flex justify-content-between align-items-center" variant="dark">
       <Navbar.Brand href="/#home">
-        <div style={{ fontSize: '24px', fontWeight: 'bold' }}>Proyecto CMF</div>
+        <div style={{ fontSize: '24px', fontWeight: 'bold' }}>Financiera La Clave</div>
       </Navbar.Brand>
       <div className="text-white" style={{ fontSize: '18px' }}>
         ¡Hola, {nombre}!

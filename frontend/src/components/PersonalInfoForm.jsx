@@ -125,7 +125,7 @@ export default function PersonalInfoForm({ formData, setFormData, cuota, setCuot
             value={total}
             onChange={(e) => setTotal(e.target.value)}
           />
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" style={{backgroundColor: '#164863', color: '#FFFFFF', border: '2px solid #9BBEC8'}}>
             Enviar
           </button>
         </form>

@@ -103,7 +103,7 @@ export default function LoanForm({ setCuota }) {
             value={formData.plazo}
             onChange={handleInputChange}
           />
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="bg-blue btn btn-primary" style={{backgroundColor: '#164863', color: '#FFFFFF', border: '2px solid #9BBEC8'}}>
             Calcular
           </button>
         </form>
