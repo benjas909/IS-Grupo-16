@@ -22,15 +22,23 @@ export default function show() {
 					</tr>
 					<tr>
 						<th>Tasa</th>
-						<td>{data.tasa}</td>
+						<td>{data.tasa}%</td>
 					</tr>
 					<tr>
 						<th>Plazo</th>
-						<td>{data.plazo}</td>
+						<td>{data.plazo} meses</td>
+					</tr>
+					<tr>
+						<th>Valor UF al momento de la solicitud</th>
+						<td>{data.valorUF} CLP</td>
 					</tr>
                     <tr>
 						<th>Valor de cuota en UF</th>
-						<td>{data.cuota}</td>
+						<td>{data.cuota} UF</td>
+					</tr>
+					<tr>
+						<th>Total a pagar en UF</th>
+						<td>{data.total} UF</td>
 					</tr>
 				</tbody>
 			</table>

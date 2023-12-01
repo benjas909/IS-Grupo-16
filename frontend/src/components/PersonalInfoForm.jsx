@@ -30,8 +30,8 @@ export default function PersonalInfoForm({ formData, setFormData, cuota, setCuot
       tasa: parseInt(taza, 10),
       valorUF: parseFloat(VUF),
       plazo: parseInt(plazo, 10),
-      total: parseInt(total, 10),
-      cuota: parseInt(cuota),  
+      total: parseFloat(total, 10),
+      cuota: parseFloat(cuota),  
     };
     console.log('Cuota en PersonalInfoForm:', cuota);
     try {
