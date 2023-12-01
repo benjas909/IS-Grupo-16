@@ -19,11 +19,11 @@ export default function index() {
 
   const tbody = [];
 
-	data.forEach(({ rutSolicitante, cuota, total, id }) => {
+	data.forEach(({ rutSolicitante, plazo, total, id }) => {
 		tbody.push(
 			<tr>
 				<td>{rutSolicitante}</td>
-				<td>{cuota}</td>
+				<td>{plazo}</td>
 				<td>{total}</td>
 				<td>
 					<Link to={`requests/${id}`}>

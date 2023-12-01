@@ -29,7 +29,7 @@ export default function show() {
 						<td>{data.plazo}</td>
 					</tr>
                     <tr>
-						<th>Cuotas</th>
+						<th>Valor de cuota en UF</th>
 						<td>{data.cuota}</td>
 					</tr>
 				</tbody>

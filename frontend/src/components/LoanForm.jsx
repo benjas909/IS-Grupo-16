@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import InputField from './InputField';
 
-export default function LoanForm({ setCuota }) {
+export default function LoanForm({ setCuota,settaza,setplazo,settotal,setVUF  }) {
   const [formData, setFormData] = useState({
     valorCredito: '',
     tasa: '',
@@ -24,7 +24,7 @@ export default function LoanForm({ setCuota }) {
         setValorUF(parseFloat(data.UFs[0].Valor));
       })
       .catch(error => {
-        console.error("Error conectando con api UF:", error);
+        console.error("Error conectando con API CMF:", error);
       });
   }, []);
 
@@ -66,6 +66,10 @@ export default function LoanForm({ setCuota }) {
     setFormData({ ...formData, cuotaUF: cuotaUF, totalUF: totalUF, cuotaClp: cuotaCLP, totalClp: totalCLP});
     // setFormData({ ...formData, totalUF: totalUF});
     setCuota(cuotaUF);
+    settaza(formData.tasa);
+    setplazo(formData.plazo);
+    settotal(totalUF);
+    setVUF(valorUF)
   };
 
 

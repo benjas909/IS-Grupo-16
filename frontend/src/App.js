@@ -23,7 +23,7 @@ import ReqsView from "./views/requests/show";
 import Home from "./views/Home";
 
 export default function App() {
-  const [userRole, setUserRole] = useState("user");
+  const [userRole, setUserRole] = useState("supervisor");
 
   return (
     <Router>
@@ -62,9 +62,11 @@ export default function App() {
                     <Route exact path="/requests">
                       <ReqsHome />
                     </Route>
+
                     <Route exact path="/">
                       <LoanCalculatorView />
                     </Route>
+					
                   </React.Fragment>
                 )}
               </Switch>
