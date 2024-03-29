@@ -9,7 +9,7 @@ Este es el repositorio del *Grupo 7*, cuyos integrantes son:
 
 ## Wiki
 
-Puede acceder a la Wiki mediante el siguiente [enlace]([https://gitlab.inf.utfsm.cl/daniel.parraguez/inf236-2023-2-grupo-7/-/wikis/home](https://github.com/benjas909/IS-Grupo-16/wiki))
+Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/benjas909/IS-Grupo-16/wiki)
 
 ## Videos
 
