@@ -1,11 +1,17 @@
-# Grupo 7
+# Grupo 7 ADSW/Grupo 16 ISW
 
-Este es el repositorio del *Grupo 7*, cuyos integrantes son:
+Este es el repositorio del *Grupo 7* de ADSW, cuyos integrantes fueron:
 
 * Benjamin Aguilera  - 202173507-0
 * Felipe Nuñez - 202173568-2
 * Felipe Zambrano - 202011502-8
 * **Tutor**: Daniel Parraguez
+
+Los miembros actuales del grupo 16, quienes usarán este proyecto son:
+* Benjamín Aguilera - 202173507-0
+* Benjamín Cárdenas - 202073572-7
+* Alexander Inostroza - 202173595-K
+* Felipe Nuñez - 202173568-2
 
 ## Wiki
 
