@@ -13,6 +13,9 @@ Los miembros actuales del grupo 16, quienes usarán este proyecto son:
 * Alexander Inostroza - 202173595-K
 * Felipe Nuñez - 202173568-2
 
+## Retrospectiva
+Puede acceder a la retrospectiva realizada sobre este proyecto en el siguiente link [enlace](https://github.com/benjas909/IS-Grupo-16/wiki/Retrospectiva)
+
 ## Wiki
 
 Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/benjas909/IS-Grupo-16/wiki)
