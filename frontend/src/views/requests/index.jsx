@@ -39,7 +39,7 @@ export default function index() {
   return (
 		<Container className="pt-4">
 			<div className="d-flex align-items-center">
-				<h1>Listado de Solicitudes</h1>
+				<h1>Lista de cotizaciones</h1>
 			</div>
 
 			<Table striped bordered hover>

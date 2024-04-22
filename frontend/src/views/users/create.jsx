@@ -14,7 +14,7 @@ export default function create() {
 			history.push(`/`);
 		} catch (error) {
 			console.log(error);
-			alert("A ocurrido un error al actualizar");
+			alert("Ha ocurrido un error al actualizar");
 		}
 	};
 
