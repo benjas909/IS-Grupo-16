@@ -39,7 +39,7 @@ export default function index() {
   return (
 		<Container className="pt-4">
 			<div className="d-flex align-items-center">
-				<h1>Lista de cotizaciones</h1>
+				<h1>Lista de cotizaciones por Ejecutivo</h1>
 			</div>
 
 			<Table striped bordered hover>
@@ -49,6 +49,7 @@ export default function index() {
 						<th>Cuotas</th>
             			<th>Valor</th>
 						<th>Acciones</th>
+						<th>ID Ejecutivo</th>
 					</tr>
 				</thead>
 				<tbody>{tbody}</tbody>

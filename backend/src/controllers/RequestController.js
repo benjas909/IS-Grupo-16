@@ -1,3 +1,4 @@
+import { where } from "sequelize";
 import Request from "../models/request.js";
 
 export default class RequestController {
@@ -10,6 +11,15 @@ export default class RequestController {
     const requests = await Request.findAll({
       where: {
         rutSolicitante: req.params.rutSolicitante,
+      },
+    });
+    res.send(requests);
+  }
+
+  async getByExecID(req, res) {
+    const requests = await Request.findAll({
+      where: {
+        id_ejecutivo: req.params.id_ejecutivo,
       },
     });
     res.send(requests);
