@@ -10,14 +10,23 @@ export default function login() {
 	const history = useHistory();
 
 	const [state, setstate] = useState({});
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
     const dispatch = useDispatch();
 
 	const submitForm = async (e) => {
 		e.preventDefault();
 		try {
 			const response = await loginUser(state);
-			history.push(`/`);
-            console.log(response)
+
+			const token = response.data.token;
+			console.log(response);
+      		if (token) {
+        		localStorage.setItem('token', token);
+				setIsLoggedIn(true);
+				history.push(`/`);
+      		}
+			
+
 		} catch (error) {
 			console.log(error);
 			alert("Nombre o contraseña incorrecta");
