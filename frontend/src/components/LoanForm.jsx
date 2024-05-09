@@ -10,8 +10,8 @@ export default function LoanForm({ setCuota,settaza,setplazo,settotal,setVUF  })
     plazo: '',
     cuotaUF: '0',
     totalUF: '0',
-    cuotaClp: '0',
-    totalClp: '0',
+    cuotaClP: '0',
+    totalClP: '0',
   });
 
   const [valorUF, setValorUF] = useState('');
@@ -21,7 +21,7 @@ export default function LoanForm({ setCuota,settaza,setplazo,settotal,setVUF  })
       .get("https://api.cmfchile.cl/api-sbifv3/recursos_api/uf?apikey=599cd22316598c0ec9fc843e23b2cdcc077159ba&formato=JSON")
       .then(res => {
         const data = res.data;
-        setValorUF(parseFloat(data.UFs[0].Valor));
+        setValorUF(parseInt(1000*parseFloat(data.UFs[0].Valor)));
       })
       .catch(error => {
         console.error("Error conectando con API CMF:", error);
@@ -63,7 +63,7 @@ export default function LoanForm({ setCuota,settaza,setplazo,settotal,setVUF  })
     const cuotaCLP = conversionCuotaCLP(cuotaUF, valorUF);
     const totalCLP = conversionTotalCLP(totalUF, valorUF);
 
-    setFormData({ ...formData, cuotaUF: cuotaUF, totalUF: totalUF, cuotaClp: cuotaCLP, totalClp: totalCLP});
+    setFormData({ ...formData, cuotaUF: cuotaUF, totalUF: totalUF, cuotaClP: cuotaCLP, totalClP: totalCLP});
     // setFormData({ ...formData, totalUF: totalUF});
     setCuota(cuotaUF);
     settaza(formData.tasa);
@@ -107,15 +107,16 @@ export default function LoanForm({ setCuota,settaza,setplazo,settotal,setVUF  })
             value={formData.plazo}
             onChange={handleInputChange}
           />
-          <button type="submit" className="bg-blue btn btn-primary" style={{backgroundColor: '#164863', color: '#FFFFFF', border: '2px solid #9BBEC8'}}>
+          <button type="submit" name="botonPrestamo" id="botonPrestamo" className="bg-blue btn btn-primary" style={{backgroundColor: '#164863', color: '#FFFFFF', border: '2px solid #9BBEC8'}}>
             Calcular
           </button>
         </form>
-        <div>Valor UF hoy: {valorUF} CLP</div>
-        <div>Sus cuotas serían de: {formData.cuotaUF} UF</div>
-        <div>Total: {formData.totalUF} UF</div>
-        <div>Sus cuotas serían de: {formData.cuotaClp} CLP</div>
-        <div>Total: {formData.totalClp} CLP</div>
+        <div id="valorUF">Valor UF hoy: {valorUF} CLP</div>
+        <div id="cuotasUF">Sus cuotas serían de: {formData.cuotaUF} UF</div>
+        <div id="totalUF">Total: {formData.totalUF} UF</div>
+        <div id="cuotasCLP">Sus cuotas serían de: {formData.cuotaClP} CLP</div>
+        <div id="totalCLP">Total: {formData.totalClP} CLP</div>
+        
       </div>
     </div>
   );
