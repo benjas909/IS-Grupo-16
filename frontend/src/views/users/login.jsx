@@ -17,16 +17,13 @@ export default function login() {
 		e.preventDefault();
 		try {
 			const response = await loginUser(state);
-
 			const token = response.data.token;
-			console.log(response);
-      		if (token) {
+			if (token) {
         		localStorage.setItem('token', token);
 				setIsLoggedIn(true);
 				history.push(`/`);
       		}
 			
-
 		} catch (error) {
 			console.log(error);
 			alert("Nombre o contraseña incorrecta");

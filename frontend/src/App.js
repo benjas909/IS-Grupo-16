@@ -1,6 +1,6 @@
  // app.js
 
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
@@ -23,8 +23,16 @@ import ReqsView from "./views/requests/show";
 import Home from "./views/Home";
 
 export default function App() {
-  const [userRole, setUserRole] = useState("supervisor");
+  const [userRole, setUserRole] = useState("user");
 
+  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+  const token = localStorage.getItem('token');
+    setIsLoggedIn(!!token);
+  }, []);
+  
+  
   return (
     <Router>
       <div>
@@ -36,7 +44,8 @@ export default function App() {
             </Col>
             <Col xs="10">
               <Switch>
-                {userRole === "user" && (
+
+                {!isLoggedIn && (
                  <React.Fragment>
                   <Route exact path="/">
                     <LoanCalculatorView2 />
@@ -49,6 +58,7 @@ export default function App() {
                   </Route>
                   </React.Fragment>
                 )}
+
                 {userRole === "analista" && (
                   <Route path="/">
                     <LoanCalculatorView />
