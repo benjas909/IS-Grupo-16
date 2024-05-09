@@ -23,12 +23,16 @@ import ReqsView from "./views/requests/show";
 import Home from "./views/Home";
 
 export default function App() {
-  const [userRole, setUserRole] = useState("user");
 
-  
+  const [userRole, setUserRole] = useState("none");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+
+
   useEffect(() => {
   const token = localStorage.getItem('token');
+  const role = String(localStorage.getItem('role')).toLowerCase();
+    setUserRole(role);
     setIsLoggedIn(!!token);
   }, []);
   
@@ -40,7 +44,7 @@ export default function App() {
         <Container fluid className="p-0">
           <Row className="no-gutters">
             <Col xs="2">
-              <Sidebar userRole={userRole} />
+              <Sidebar userRole={userRole} setUserRole={setUserRole}/>
             </Col>
             <Col xs="10">
               <Switch>
@@ -64,6 +68,7 @@ export default function App() {
                     <LoanCalculatorView />
                   </Route>
                 )}
+
                 {userRole === "supervisor" && (
                   <React.Fragment>
                     <Route exact path="/requests/:id">

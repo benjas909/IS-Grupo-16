@@ -11,6 +11,7 @@ export default function login() {
 
 	const [state, setstate] = useState({});
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [userRole, setUserRole] = useState("none");
     const dispatch = useDispatch();
 
 	const submitForm = async (e) => {
@@ -18,8 +19,12 @@ export default function login() {
 		try {
 			const response = await loginUser(state);
 			const token = response.data.token;
+			const user = response.data.user;
+			const role = response.data.user.permissions;
+
 			if (token) {
         		localStorage.setItem('token', token);
+				localStorage.setItem('role', role);
 				setIsLoggedIn(true);
 				history.push(`/`);
       		}

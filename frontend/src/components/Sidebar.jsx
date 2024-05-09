@@ -23,18 +23,22 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from "react-router-dom";
 
-export default function Sidebar({ userRole }) {
+export default function Sidebar({ userRole , setUserRole }) {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+    const role = localStorage.getItem('role');
+    setUserRole(role);
     setIsLoggedIn(!!token);
   },);
 
   const handlelogout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
     setIsLoggedIn(false);
+    setUserRole("none");
   };
 
   return (

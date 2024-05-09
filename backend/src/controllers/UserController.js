@@ -65,7 +65,7 @@ export default class UserController {
 	
 		const token = jwt.sign({ id: user.id }, process.env.SECRET_TOKEN);
 
-		return res.status(200).send({ token: token }); // cambiar esto.
+		return res.status(200).send({ token: token , user: user }); // cambiar esto.
 
 	}
 	
