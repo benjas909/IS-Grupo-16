@@ -28,7 +28,7 @@ export default function LoanCalculatorView() {
             <LoanForm formData={formData} setFormData={setFormData} setCuota={setCuota} settaza={settaza} setplazo={setplazo} settotal={settotal} setVUF={setVUF} />
           </div>
           <div className="col-md-6">
-            <PersonalInfoForm formData={formData} setFormData={setFormData}cuota={cuota} setCuota={setCuota} taza={taza} plazo={plazo} total={total} VUF={VUF}/>
+            <PersonalInfoForm formData={formData} setFormData={setFormData} cuota={cuota} setCuota={setCuota} taza={taza} plazo={plazo} total={total} VUF={VUF}/>
           </div>
         </div>
       </div>
