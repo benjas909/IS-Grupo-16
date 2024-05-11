@@ -1,13 +1,11 @@
 import UserController from "./UserController.js";
 import ClientController from "./ClientController.js";
 import RequestController from "./RequestController.js";
-// import DatosPersonalesController from './DPController.js';
 
 export default (app) => {
   const userController = new UserController();
   const clientController = new ClientController();
   const requestController = new RequestController();
-  // const datosPersonalesController = new DatosPersonalesController();
 
   app.get("/users", userController.getAll);
   app.post("/users/create", userController.create);

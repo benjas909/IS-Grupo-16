@@ -12,6 +12,9 @@ import Header from "./components/Header";
 
 import UserAdd from "./views/users/create";
 import Userlogin from "./views/users/login";
+import UserList from "./views/users/index";
+import UserEdit from "./views/users/edit";
+import UserView from "./views/users/show";
 
 import LoanCalculatorView from "./views/sims/LoanCalculatorView";
 import LoanCalculatorView2 from "./views/sims/LoanCalculatorView2";
@@ -77,7 +80,31 @@ export default function App() {
 										<Route exact path="/requests">
 											<ReqsHome />
 										</Route>
-
+										<Route exact path="/">
+											<LoanCalculatorView />
+										</Route>
+									</React.Fragment>
+								)}
+								{userRole === "gerente" && (
+									<React.Fragment>
+										<Route exact path="/requests/:id">
+											<ReqsView />
+										</Route>
+										<Route exact path="/requests">
+											<ReqsHome />
+										</Route>
+										<Route exact path="/users/create">
+											<UserAdd />
+										</Route>
+										<Route exact path="/users/:id/edit">
+											<UserEdit />
+										</Route>
+										<Route exact path="/users/:id">
+											<UserView />
+										</Route>
+										<Route exact path="/users/">
+											<UserList />
+										</Route>
 										<Route exact path="/">
 											<LoanCalculatorView />
 										</Route>
