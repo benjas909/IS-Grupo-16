@@ -3,8 +3,9 @@ import axios from "axios";
 const updateRequest = async (id, data) =>
 	axios.put(`${process.env.REACT_APP_BACKEND_URL}/requests/${id}`, data);
 
-const createRequest = async (data) =>
+const createRequest = async (data) => {
 	axios.post(`${process.env.REACT_APP_BACKEND_URL}/requests`, data);
+};
 
 const deleteRequest = async (id) =>
 	axios

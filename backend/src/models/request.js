@@ -21,6 +21,7 @@ Request.init(
     cuota: Sequelize.DataTypes.INTEGER,
     total: Sequelize.DataTypes.INTEGER,
     rutSolicitante: Sequelize.DataTypes.INTEGER,
+    id_ejecutivo: Sequelize.DataTypes.INTEGER,
   },
   {
     sequelize,

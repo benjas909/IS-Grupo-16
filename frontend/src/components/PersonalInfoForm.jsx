@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import InputField from './InputField';
+import { createRequest } from "../repositories/request.js";
 
 
 export default function PersonalInfoForm({ formData, setFormData, cuota, setCuota,taza, plazo, total,VUF }) {
@@ -23,7 +24,7 @@ export default function PersonalInfoForm({ formData, setFormData, cuota, setCuot
       const responseCliente = await crearNuevoCliente(nuevoCliente);
       clienteId = parseInt(rut, 10);
     }
-
+   
     const datosPersonales = {
       rutSolicitante: clienteId,
       nombre,
@@ -32,12 +33,13 @@ export default function PersonalInfoForm({ formData, setFormData, cuota, setCuot
       plazo: parseInt(plazo, 10),
       total: parseFloat(total, 10),
       cuota: parseFloat(cuota),  
+      id_ejecutivo: parseInt(localStorage.getItem('id')),
     };
+
     console.log('Cuota en PersonalInfoForm:', cuota);
     try {
       console.log(datosPersonales);
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/requests`, datosPersonales);
-
+      const response = await createRequest(datosPersonales); 
       if (response.ok) {
         console.log('Datos enviados con éxito');
       } else {

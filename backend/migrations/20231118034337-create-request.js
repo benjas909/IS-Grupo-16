@@ -9,6 +9,16 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+
+      idEjecutivo: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Users",
+          key: "id",
+          as: "idEjecutivo",
+        }
+      },
+
       rutSolicitante: {
         type: Sequelize.INTEGER,
         references: {

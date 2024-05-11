@@ -38,6 +38,7 @@ export default class RequestController {
       plazo: req.body.plazo,
       cuota: req.body.cuota,
       total: req.body.total,
+      id_ejecutivo: req.body.id_ejecutivo,
     });
     res.send(request);
   }

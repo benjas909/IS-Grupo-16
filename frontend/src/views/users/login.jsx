@@ -21,10 +21,12 @@ export default function login() {
 			const token = response.data.token;
 			const user = response.data.user;
 			const role = response.data.user.permissions;
+			const id = response.data.user.id;
 
 			if (token) {
         		localStorage.setItem('token', token);
 				localStorage.setItem('role', role);
+				localStorage.setItem('id', id);
 				setIsLoggedIn(true);
 				history.push(`/`);
       		}
