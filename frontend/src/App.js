@@ -57,6 +57,12 @@ export default function App() {
 									</React.Fragment>
 								)}
 
+								{userRole === "user" && (
+									<Route exact path="/">
+										<LoanCalculatorView2 />
+									</Route>
+								)}
+
 								{userRole === "analista" && (
 									<Route path="/">
 										<LoanCalculatorView />
