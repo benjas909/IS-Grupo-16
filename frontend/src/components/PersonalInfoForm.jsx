@@ -18,7 +18,7 @@ export default function PersonalInfoForm({ formData, setFormData, cuota, setCuot
       console.log('No se encontró un cliente existente. Creando un nuevo cliente.');
       const nuevoCliente = {
         id: parseInt(rut, 10),
-        nombre: nombre,
+        name: nombre,
       };
       const responseCliente = await crearNuevoCliente(nuevoCliente);
       clienteId = parseInt(rut, 10);
@@ -88,7 +88,7 @@ export default function PersonalInfoForm({ formData, setFormData, cuota, setCuot
             onChange={(e) => setRut(e.target.value)}
           />
           <InputField
-            label="Nombre"
+            label="nombre"
             id="nombre"
             name="nombre"
             value={nombre}
