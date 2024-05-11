@@ -16,11 +16,12 @@ export default function index() {
 
 	const tbody = [];
 
-	data.forEach(({ nombre, email, id }) => {
+	data.forEach(({ nombre, email, permissions, id }) => {
 		tbody.push(
 			<tr>
 				<td>{nombre}</td>
 				<td>{email}</td>
+				<td>{permissions}</td>
 				<td>
 					<Link to={`users/${id}`}>
 						<a href={`users/${id}`} className="btn btn-success">
@@ -42,11 +43,11 @@ export default function index() {
 		<Container className="pt-4">
 			<div className="d-flex align-items-center">
 				<h1>Listado de Usuarios</h1>
-				<Link to="/users/create">
+				{/* <Link to="/users/create">
 					<a href="/users/create" className="ml-4 btn btn-primary" style={{backgroundColor: '#164863', color: '#FFFFFF', border: '2px solid #9BBEC8'}}>
 						Crear Usuario
 					</a>
-				</Link>
+				</Link> */}
 			</div>
 
 			<Table striped bordered hover>
@@ -54,6 +55,7 @@ export default function index() {
 					<tr>
 						<th>Nombre</th>
 						<th>Email</th>
+						<th>Rol</th>
 						<th>Acciones</th>
 					</tr>
 				</thead>
