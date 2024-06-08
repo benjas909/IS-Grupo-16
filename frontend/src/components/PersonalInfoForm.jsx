@@ -13,6 +13,11 @@ export default function PersonalInfoForm({ formData, setFormData, cuota, setCuot
   const enviarDatosPersonales = async (event) => {
     event.preventDefault();
 
+    if (!/^\d+$/.test(rut)) {
+      alert('RUT Solicitante debe contener algo.');
+      return; // Prevent form submission
+    }
+
     let clienteId = await verificarClienteExistente(parseInt(rut, 10));
 
     if (!clienteId) {
@@ -90,7 +95,7 @@ export default function PersonalInfoForm({ formData, setFormData, cuota, setCuot
             onChange={(e) => setRut(e.target.value)}
           />
           <InputField
-            label="nombre"
+            label="Nombre"
             id="nombre"
             name="nombre"
             value={nombre}
