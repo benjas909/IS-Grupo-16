@@ -8,14 +8,24 @@ import Table from "react-bootstrap/Table";
 import { Link } from "react-router-dom";
 // import DeleteForm from "../../components/DeleteForm";
 import { getByExecID } from "../../repositories/request";
+import { getAllReqs } from "../../repositories/request";
 
 export default function index() {
 	// eslint-disable-next-line
 	const userId = localStorage.getItem('id');
-	const { data, error } = useSWR(`/requests/exec/${userId}`, () => getByExecID(userId), {
-		initialData: [],
-		revalidateOnMount: true,
-	  });
+  const role = localStorage.getItem('role');
+
+  let fetchData;
+  if (role === 'supervisor') {
+    fetchData = () => getByExecID(userId);
+  } else if (role === 'gerente') {
+    fetchData = getAllReqs;
+  }
+
+  const { data, error } = useSWR(role === 'supervisor' ? `/requests/exec/${userId}` : "/requests/all", fetchData, {
+    initialData: [],
+    revalidateOnMount: true,
+  });
 
   const tbody = [];
 

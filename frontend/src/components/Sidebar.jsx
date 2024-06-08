@@ -58,6 +58,7 @@ export default function Sidebar({ userRole , setUserRole }) {
           {userRole === "gerente" && (
             <>
               <Link to="/users"><Nav.Link href="/users">Administración de Usuarios</Nav.Link></Link>
+              <Link to="/requests"><Nav.Link href="/requests">Solicitudes Ingresadas</Nav.Link></Link>
             </>
           )}
           
