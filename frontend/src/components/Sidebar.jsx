@@ -39,6 +39,7 @@ export default function Sidebar({ userRole , setUserRole }) {
     localStorage.removeItem('role');
     setIsLoggedIn(false);
     setUserRole("none");
+    window.location.href = '/';
     window.location.reload();
   };
 
