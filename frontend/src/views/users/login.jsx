@@ -29,6 +29,7 @@ export default function login() {
 				localStorage.setItem('id', id);
 				setIsLoggedIn(true);
 				history.push(`/`);
+				window.location.reload();
       		}
 			
 		} catch (error) {
