@@ -14,7 +14,10 @@ Los miembros actuales del grupo 16, quienes usarán este proyecto son:
 * Felipe Nuñez - 202173568-2
 
 ## Retrospectiva
-Puede acceder a la retrospectiva realizada sobre este proyecto en el siguiente link [enlace](https://github.com/benjas909/IS-Grupo-16/wiki/Retrospectiva)
+Puede acceder a la retrospectiva realizada sobre este proyecto en el siguiente [link](https://github.com/benjas909/IS-Grupo-16/wiki/Retrospectiva)
+
+## Video Hito 4
+Puede ver el video realizado para el hito 4 en el siguiente enlace [link](https://www.youtube.com/watch?v=Imij9XSXRYg)
 
 ## Wiki
 
