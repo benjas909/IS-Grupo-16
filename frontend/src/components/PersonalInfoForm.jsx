@@ -13,7 +13,7 @@ export default function PersonalInfoForm({ formData, setFormData, cuota, setCuot
   const enviarDatosPersonales = async (event) => {
     event.preventDefault();
 
-    if (!/^\d+$/.test(rut)) {
+    if (!/^\d+-(?:\d|k)$/.test(rut)) {
       alert('RUT Solicitante debe contener algo.');
       return; // Prevent form submission
     }
@@ -45,11 +45,8 @@ export default function PersonalInfoForm({ formData, setFormData, cuota, setCuot
     try {
       console.log(datosPersonales);
       const response = await createRequest(datosPersonales); 
-      if (response.ok) {
-        console.log('Datos enviados con éxito');
-      } else {
-        console.error('Error al enviar datos:', response.status, response.statusText);
-      }
+      alert('Datos enviados con éxito')
+      window.location.reload();
     } catch (error) {
       console.error('Error de red:', error.message);
     }
