@@ -17,7 +17,7 @@ export default (app) => {
 
   app.get("/requests", requestController.getAll);
   app.post("/requests", requestController.create);
-  // app.get("/requests", requestController.getByExecID);
+  app.get("/requests/exec/:requestId", requestController.getByExecID);
   app.get("/requests/:requestId", requestController.get);
   app.put("/requests/:requestId", requestController.update);
   app.delete("/requests/:requestId", requestController.delete);

@@ -7,19 +7,19 @@ import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import { Link } from "react-router-dom";
 // import DeleteForm from "../../components/DeleteForm";
-import { getAllReqs } from "../../repositories/request";
+import { getByExecID } from "../../repositories/request";
 
 export default function index() {
 	// eslint-disable-next-line
-	const { data, error } = useSWR("/requests/all", {
-		fetcher: getAllReqs,
+	const userId = localStorage.getItem('id');
+	const { data, error } = useSWR(`/requests/exec/${userId}`, () => getByExecID(userId), {
 		initialData: [],
 		revalidateOnMount: true,
-	});
+	  });
 
   const tbody = [];
 
-	data.forEach(({ rutSolicitante, plazo, total, id }) => {
+	data.forEach(({ rutSolicitante, plazo, total, id , id_ejecutivo}) => {
 		tbody.push(
 			<tr>
 				<td>{rutSolicitante}</td>
@@ -32,6 +32,7 @@ export default function index() {
 						</a>
 					</Link>
 				</td>
+				<td>{id_ejecutivo}</td>
 			</tr>
 		);
 	});

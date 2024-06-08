@@ -19,7 +19,7 @@ export default class RequestController {
   async getByExecID(req, res) {
     const requests = await Request.findAll({
       where: {
-        id_ejecutivo: req.params.id_ejecutivo,
+        id_ejecutivo: req.params.requestId,
       },
     });
     res.send(requests);
