@@ -34,7 +34,7 @@ export default function LoanForm({ setCuota,settaza,setplazo,settotal,setVUF  })
 
 
   const calcularCuota = (tasa, plazo, valor) => {
-    var tasa = parseFloat(tasa / 100);
+    let tasa = parseFloat(tasa / 100);
     const cuota = ((valor * tasa) / (1 - Math.pow((1 + tasa), -plazo))).toFixed(2);
     return cuota;
   };

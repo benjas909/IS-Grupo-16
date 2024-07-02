@@ -5,7 +5,7 @@ const updateRequest = async (id, data) =>
 
 const createRequest = async (data) => {
 	axios.post(`${process.env.REACT_APP_BACKEND_URL}/requests`, data);
-};''
+};
 
 const deleteRequest = async (id) =>
 	axios
@@ -16,7 +16,6 @@ const getAllReqs = () =>
 	axios
 		.get(`${process.env.REACT_APP_BACKEND_URL}/requests`)
 		.then((res) => res.data);
-
 
 const getByExecID = (id_ejecutivo) =>
 	axios
@@ -29,4 +28,11 @@ const getReq = (id) =>
 		.then((res) => res.data);
 
 // eslint-disable-nextline
-export { updateRequest, createRequest, deleteRequest, getAllReqs, getReq , getByExecID};
+export {
+	updateRequest,
+	createRequest,
+	deleteRequest,
+	getAllReqs,
+	getReq,
+	getByExecID,
+};
