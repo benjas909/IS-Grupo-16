@@ -1,0 +1,7 @@
+El endpoint de login fue testeado con los siguientes parametros:
+
+Número de Hilos: 90
+Periodo de Subida (en segundos): 5
+Contador del bucle: 5
+
+El endpoint supera el segundo de response time

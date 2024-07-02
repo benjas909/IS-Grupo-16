@@ -4,3 +4,4 @@ Número de Hilos: 40
 Periodo de Subida (en segundos): 5
 Contador del bucle: 10
 
+El endpoint no supera el segundo de response time
